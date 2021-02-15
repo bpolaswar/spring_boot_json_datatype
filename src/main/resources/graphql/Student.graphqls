@@ -1,0 +1,24 @@
+type Student{
+	id:ID
+	data:String
+}
+scalar JSON
+input StudentInput{
+	id:ID
+	data:String
+	json:JSON
+}
+
+type Query {
+    getAllStudents:[Student]
+    getStudentById(studentId:Int!):Student
+}
+
+type Mutation{
+	insertStudent(studentInput:StudentInput!):Student!
+}
+
+schema{
+	  query:Query
+	  mutation:Mutation
+}
